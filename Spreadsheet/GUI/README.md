@@ -1,4 +1,4 @@
-Authors:		Araum Karimi & Sam Oblad
+Authors:		Sam Oblad
 Course:			CS3500, University of Utah, School of Computing
 GitHub ID:		AraumKarimi, Sam-Oblad
 Repo:			https://github.com/uofu-cs3500-spring24/assignment-six-gui-functioning-spreadsheet-variable_vikings
