@@ -1,5 +1,6 @@
 '''
-Authors:		Araum Karimi & Sam Oblad
+Authors:		Sam Oblad
+Partner: 		Araum Karimi
 Start Date:		13-Jan-2024
 Course:			CS3500, University of Utah, School of Computing
 GitHub ID:		AraumKarimi, Sam-Oblad
