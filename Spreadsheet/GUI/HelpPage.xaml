@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Authors: Araum Karimi, Sam Oblad 
+    Date: 03/03/2024
+    Course: CS 3500, University of Utah, School of Computing
+
+    Copyright: CS 3500, Araum Karimi, Sam Oblad - This work may not be copied for use in Academic Coursework
+        We, Araum Karimi and Sam Oblad, certify that we wrote this code from scratch and
+        did not copy it in part or whole from another source.  All 
+        references used in the completion of the assignments are cited 
+        in the solution README file.
+
+    File Contents: This file contains the xaml for our helpPage class for the GUI project. 
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GUI.HelpPage"
+             >
+    <ScrollView>
+    <VerticalStackLayout>
+        <Label 
+            FontSize="48"
+            Text="Spreadsheet Help"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Label
+                Text="Getting Started:"
+                HorizontalOptions="Center"
+                FontSize="Title"
+                />
+            <Label
+                Text="Our spreadsheet implementation contains a widget bar, and a 10x10 grid of cells. To set the value of a cell, First select a cell by clicking on it, then enter your cell contents either directly to the cell or in the Cell Contents widget. To set the cell content you must press enter after you're finished typing."
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label/>
+
+            <Label Padding="5"/>
+
+            <Label
+                Text="The Menu Bar:"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                
+            />
+            <Label
+                Text="The Menu bar will display within the spreadsheet at the very top of the window. It has two different buttons, File, and Help"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label
+                Text="File"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                />
+            <Label
+                Text="File has three options: New, Open, and Save. New will create a new spreadsheet after checking if it's okay to overwrite any unsaved changes. Open will let you load in a saved file of type .sprd, Note, the current spreadsheet version is 'six' and is the only supported saved version currently. Save will check before overwriting an existing file, you must manually put in a full file path and the file name ending in .sprd to save correctly. "
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+
+
+            <Label
+                Text="Help"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                />
+            <Label
+                Text="Help has one option, Get Help, and it bring you here!"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label Padding="15"/>
+            <Label
+                Text="The Widget Bar:"
+                HorizontalOptions="Center"
+                FontSize="Title"
+                />
+
+            <Border
+            StrokeThickness="2"
+        HeightRequest="44">
+            <HorizontalStackLayout x:Name="widgetBar">
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="40" WidthRequest="135" Padding="5">
+                    <HorizontalStackLayout>
+                        <Label Text = "Selected Cell:" BackgroundColor="Lavender" TextColor="Black" Margin="0,0,10,0"/>
+                        <Label x:Name = "currentCellWidget" BackgroundColor="Lavender" TextColor="Black"/>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="40" WidthRequest="200" Padding="5">
+                    <HorizontalStackLayout>
+                        <Label Text = "Cell Value:" TextColor="Black" Margin="0,0,10,0"/>
+                        <Label x:Name = "cellValueWidget" TextColor="Black" />
+                    </HorizontalStackLayout>
+                </Border>
+
+                    <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="40" WidthRequest="255" >
+                        <HorizontalStackLayout>
+                            <Label Text = "Cell Contents:" TextColor="Black" Padding="5"/>
+                            <Border  Stroke="Black" StrokeThickness="1" HeightRequest="30" WidthRequest="145">
+                            </Border>
+                        </HorizontalStackLayout>
+                    </Border>
+                    <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="40" WidthRequest="115">
+                    <Button x:Name="UndoButton" Text="Undo" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  IsEnabled="False" />
+                </Border>
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="40" WidthRequest="115">
+                    <Button x:Name="RedoButton" Text="Redo" TextColor = "Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  IsEnabled="False" />
+                </Border>
+            </HorizontalStackLayout>
+        </Border>
+            <Label/>
+            <Label
+                Text="Selected Cell"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                />  
+            <Label
+                Text="The selected cell widget shows which cell is selected within the spreadsheet. Note: This cell will be highlighted as well."
+                FontSize="Body"
+                HorizontalOptions="Center"
+                                Padding="5"
+                />
+            <Label/>
+            <Label
+                Text="Cell Value"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                
+                
+                />
+            <Label
+                Text="The cell value widget will display the value of the contents within the selected cell. This will either be a number or a phrase. The selected cell in the grid will always show the content, or formula, on selection, while the value widget will show the calculated value. Note: cells that are not selected will reflect their value, not their content"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label/>
+            <Label
+                Text="Cell Contents"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                />
+            <Label
+                Text="The cell contents widget is text entry, and can be used to set or modify the contents of the selected cell"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label/>
+            <Label
+                Text="Undo"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                />
+            <Label
+                Text="Undoes the most recent change in the spreadsheet, This will only be active when there are available actions to undo. You will know it is activated when the color changes from white to highlighted blue"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label/>
+            <Label
+                Text="Redo"
+                HorizontalOptions="Center"
+                FontSize="Subtitle"
+                />
+            <Label
+                Text="Redoes the most recent undo in the spreadsheet, This will only be active when there are available actions to redo. You will know it is activated when the color changes from white to highlighted blue"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label/>
+            <Label Padding="10"/>
+            <Label
+                Text="The Grid:"
+                HorizontalOptions="Center"
+                FontSize="Title"
+                />
+            <Label
+                Text="The grid is a 10x10 set of your cells"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Padding="5"
+                />
+            <Label/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

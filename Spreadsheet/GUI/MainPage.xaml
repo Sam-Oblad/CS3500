@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Authors: Araum Karimi, Sam Oblad 
+    Date: 03/03/2024
+    Course: CS 3500, University of Utah, School of Computing
+
+    Copyright: CS 3500, Araum Karimi, Sam Oblad - This work may not be copied for use in Academic Coursework
+        We, Araum Karimi and Sam Oblad, certify that we wrote this code from scratch and
+        did not copy it in part or whole from another source.  All 
+        references used in the completion of the assignments are cited 
+        in the solution README file.
+
+    File Contents: This file contains the xaml for our mainpage class for the GUI project. 
+-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GUI.MainPage"
+             Loaded="OnPageLoaded"
+             WidthRequest="830"
+             HeightRequest="500">
+    <!--Menu Bar-->
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="New" Clicked="FileMenuNew" />
+            <MenuFlyoutItem Text="Open" Clicked="FileMenuOpenAsync" />
+            <MenuFlyoutItem Text="Save" Clicked="FileSave" />
+        </MenuBarItem>
+        <MenuBarItem Text="Help">
+            <MenuFlyoutItem Text="Get Help" Clicked="OpenHelpMenu"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    
+    <VerticalStackLayout x:Name="Entire">
+
+        <!-- A Place to put the currently selected cell "namd" and "value" -->
+        
+        <Border
+            StrokeThickness="2"
+            HeightRequest="55">
+            <HorizontalStackLayout x:Name="widgetBar">
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="50" WidthRequest="135" Padding="5">
+                    <HorizontalStackLayout>
+                    <Label Text = "Selected Cell:" BackgroundColor="Lavender" TextColor="Black" Margin="0,0,10,0"/>
+                    <Label x:Name = "currentCellWidget" BackgroundColor="Lavender" TextColor="Black"/>
+                    </HorizontalStackLayout>
+                </Border>
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="50" WidthRequest="200" Padding="5">
+                    <HorizontalStackLayout>
+                        <Label Text = "Cell Value:" TextColor="Black" Margin="0,0,10,0"/>
+                        <Label x:Name = "cellValueWidget" TextColor="Black" />
+                    </HorizontalStackLayout>
+                </Border>
+
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="50" WidthRequest="255" >
+                    <HorizontalStackLayout>
+                        <Label Text = "Cell Contents:" TextColor="Black" Padding="5"/>
+                        <Border  Stroke="Black" StrokeThickness="1" HeightRequest="30" WidthRequest="145">
+                            <Entry x:Name = "cellContentsWidget" TextColor ="Black" VerticalTextAlignment="Start" Completed="SetCellFromWidget" Focused="HighlightCell" Unfocused="RemoveHighlight"/>
+                        </Border>
+                    </HorizontalStackLayout>
+                </Border>
+                <!-- Undo and Redo Buttons -->
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="50" WidthRequest="115">
+                    <Button x:Name="UndoButton" Text="Undo" BackgroundColor="Lavender" TextColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Clicked="Undo" IsEnabled="False" />
+                </Border>  
+                <Border Stroke="Black" BackgroundColor="Lavender" StrokeThickness="2" HeightRequest="50" WidthRequest="115">
+                    <Button x:Name="RedoButton" Text="Redo" BackgroundColor="Lavender" TextColor = "Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Clicked="Redo" IsEnabled="False" />
+                </Border>   
+            </HorizontalStackLayout>
+        </Border>
+
+        <!-- the column headers: A, B, C, ... -->
+        <HorizontalStackLayout x:Name="TopLabels" BackgroundColor="Lavender">
+            <Border Stroke="Black" StrokeThickness="1" HeightRequest="30" WidthRequest="75" HorizontalOptions="Center">
+                <Label BackgroundColor="Lavender"/>
+            </Border>
+        </HorizontalStackLayout>
+
+        <!-- the Grid of Spreadsheet GUI Cells -->
+        <ScrollView
+                    x:Name="Table"
+                    Orientation="Both"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalScrollBarVisibility="Always"
+                    VerticalOptions="FillAndExpand"
+                    HeightRequest="301">
+            <HorizontalStackLayout>
+                <VerticalStackLayout x:Name="LeftLabels"  BackgroundColor="Lavender"></VerticalStackLayout>
+                <VerticalStackLayout x:Name="Grid"        BackgroundColor="Lavender"></VerticalStackLayout>
+            </HorizontalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
